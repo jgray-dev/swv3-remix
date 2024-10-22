@@ -66,13 +66,6 @@ export default function OldLocationService() {
             />
             <button type="submit">Submit</button>
           </form>
-          <button
-            onClick={() => {
-              void useGeolocator();
-            }}
-          >
-            GPS
-          </button>
         </div>
       )}
     </div>
