@@ -1,6 +1,6 @@
 import { json, redirect } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-import { Search } from "~/components/LocationService";
+import { Search } from "~/components/OldLocationService";
 import { Details } from "~/components/Details";
 
 // Mock external API call
