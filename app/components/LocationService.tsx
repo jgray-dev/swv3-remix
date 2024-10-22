@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Form, useFetcher } from "@remix-run/react";
 import { CiLocationArrow1 } from "react-icons/ci";
 
-interface LocationData {
+export interface LocationData {
   type: "geolocation" | "input";
   data: GeolocationPosition | string;
 }
