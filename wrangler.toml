@@ -79,6 +79,7 @@ pages_build_output_dir = "./build/client"
 
 [env.production.vars]
 GOOGLE_MAPS_API_KEY = "AIzaSyBx8NpbJoPBjt254U82WOLXH7MHJD6Yv1s"
+// disabled this key and added thie file to gitignore.. i hate this shit mane
 
 # [[env.production.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
