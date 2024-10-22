@@ -69,7 +69,7 @@ pages_build_output_dir = "./build/client"
 ######## PREVIEW environment config ########
 
 # [env.preview.vars]
-# API_KEY = "xyz789"
+# GOOGLE_MAPS_API_KEY = "AIzaSyBx8NpbJoPBjt254U82WOLXH7MHJD6Yv1s"
 
 # [[env.preview.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
@@ -77,8 +77,8 @@ pages_build_output_dir = "./build/client"
 
 ######## PRODUCTION environment config ########
 
-# [env.production.vars]
-# API_KEY = "abc123"
+[env.production.vars]
+GOOGLE_MAPS_API_KEY = "AIzaSyBx8NpbJoPBjt254U82WOLXH7MHJD6Yv1s"
 
 # [[env.production.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
