@@ -73,7 +73,7 @@ async function fetchWeatherData(
   }
 }
 
-export function Details({ data }: { data: { lat: number; lon: number } }) {
+export function Details({ data }: { data: { lat: number; lon: number, city: string } }) {
   console.log("Details component here. data: ", data);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export function Details({ data }: { data: { lat: number; lon: number } }) {
 
   return (
     <div>
-      Details component here. Lat: {data.lat}, Lon: {data.lon}
+      Details component here. Lat: {data.lat}, Lon: {data.lon}, City: {data.city}
     </div>
   );
 }
