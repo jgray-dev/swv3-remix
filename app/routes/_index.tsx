@@ -7,6 +7,7 @@ import {
 import LocationService, { LocationData } from "~/components/LocationService";
 import { useLoaderData } from "@remix-run/react";
 import { Details } from "~/components/Details";
+import {getNextSunEventWeather, WeatherDataResponse} from "~/functions/data";
 
 function isLocationData(data: any): data is LocationData {
   return (
@@ -59,10 +60,9 @@ export const action: ActionFunction = async ({ request, context }) => {
           )}&city=${encodeURIComponent(data.results[0].formatted_address)}`
         );
       } else {
-        console.error("No geocoding results found")
-        return {error: "No results found"}
+        console.error("No geocoding results found");
+        return { error: "No results found" };
       }
-      
     } else {
       return json({ error: "Invalid location data format" }, { status: 400 });
     }
@@ -77,11 +77,19 @@ export const loader: LoaderFunction = async ({ request }) => {
   const lat = url.searchParams.get("lat");
   const lon = url.searchParams.get("lon");
   const city = url.searchParams.get("city");
-  return !lat || !lon ? null : { lat: parseFloat(lat), lon: parseFloat(lon), city: String(city) };
+  const weatherData: WeatherDataResponse = await getNextSunEventWeather(Number(lat), Number(lon))
+  return !lat || !lon
+    ? null
+    : { lat: parseFloat(lat), lon: parseFloat(lon), city: String(city), weatherData: weatherData };
 };
 
 export default function Sunwatch() {
-  const locationData = useLoaderData<{ lat: number; lon: number, city: string } | null>();
+  const locationData = useLoaderData<{
+    lat: number;
+    lon: number;
+    city: string;
+    weatherData: WeatherDataResponse
+  } | null>();
   return (
     <div className={"w-screen min-h-screen bg-gray-950"}>
       <div>
